@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kashida Tube</title>
+  <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body class="font-c tracking-widest text-sm h-dvh text-white flex">
+  <header class="flex justify-center items-center w-10 bg-black">
+    <h1 class="-rotate-90 whitespace-nowrap">
+      Kashida Tube v1.0
+    </h1>
+  </header>
+  <form class="flex-1 flex flex-col">
+    <input class="bg-gray-500 placeholder:text-gray-100 focus:placeholder:text-white h-10 p-4 w-full focus:outline-none focus:bg-gray-400 transition-colors tracking-normal" type="text" placeholder="Script">
+    <div class="flex">
+      <div class="bg-gray-600 flex justify-center items-center w-10">
+        <div class="flex items-center gap-2 -rotate-90 whitespace-nowrap text-gray-400">
+          <input class="size-4" type="checkbox" checked disabled>
+          <label>
+            ZWNJ Support
+          </label>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col">
+        <textarea class="w-full focus:outline-none placeholder:text-gray-100 focus:placeholder:text-white p-4 bg-orange-400 focus:bg-orange-300 transition-colors resize-none" id="inject-kashida-after" style="height: 25dvh;" placeholder="Letter(s) to Inject Kashida After"></textarea>
+        <div class="flex" style="height: calc(75dvh - 2.5rem);">
+          <div class="bg-orange-600 flex justify-center items-center w-10">
+            <div class="flex items-center gap-2 -rotate-90 whitespace-nowrap text-orange-300">
+              <input class="size-4" type="checkbox" checked disabled>
+              <label>
+                Initial Support
+              </label>
+            </div>
+          </div>
+          <div class="bg-orange-500 flex justify-center items-center w-10">
+            <div class="flex items-center gap-2 -rotate-90 whitespace-nowrap text-orange-300">
+              <input class="size-4" type="checkbox" checked disabled>
+              <label>
+                Medial Support
+              </label>
+            </div>
+          </div>
+          <div class="flex-1 flex flex-col">
+            <textarea class="w-full focus:outline-none placeholder:text-gray-100 focus:placeholder:text-white p-4 bg-red-600 focus:bg-red-500 transition-colors resize-none" id="ignore-kashida-before" placeholder="Letter(s) to Ignore Kashida Before" style="height: 25dvh;"></textarea>
+            <div class="flex" style="height: calc(50dvh - 2.5rem);">
+              <div class="bg-red-700 flex justify-center items-center w-10">
+                <div class="flex items-center gap-2 -rotate-90 whitespace-nowrap text-red-500">
+                  <input class="size-4" type="checkbox" checked disabled>
+                  <label>
+                    Medial Support
+                  </label>
+                </div>
+              </div>
+              <div class="bg-red-800 flex justify-center items-center w-10">
+                <div class="flex items-center gap-2 -rotate-90 whitespace-nowrap text-red-500">
+                  <input class="size-4" type="checkbox" checked disabled>
+                  <label>
+                    Final Support
+                  </label>
+                </div>
+              </div>
+              <button class="bg-gray-900 transition-colors w-10 relative" type="submit">
+                <div class="absolute size-10 top-0 left-0 flex justify-center items-center">
+                  <svg class="fill-white w-1/2 c" xmlns="http://www.w3.org/2000/svg" viewBox="5 4 15 17"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M11 9l1.42 1.42L8.83 14H18V4h2v12H8.83l39 38L11 21l-6-6 6-6z"></path></svg>
+                </div>
+              </button>
+              <div class="flex-1">
+                <button class="bg-gray-900 transition-colors w-full h-10" type="submit"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="fixed bg-gray-950 right-0 bottom-0 overflow-auto" style="height: calc(50dvh - 5rem); width: calc(100dvw - 17.5rem);">
+    <p class="text-center leading-10 tracking-normal cursor-pointer" title="Copy"></p>
+  </div>
+  <script src="./js/app.min.js"></script>
+</body>
+</html>
