@@ -19,34 +19,45 @@ form.addEventListener('submit', (event) => {
   const letterToAddKashidaAfterArray = lettersToAddKashidaAfter.value.trim().split(breakLine);
   const letterToIgnoreKashidaBeforeArray = lettersToIgnoreKashidaBefore.value.trim().split(breakLine);
 
-  console.log(letterToAddKashidaAfterArray, letterToIgnoreKashidaBeforeArray);
-
-  for (let i = 0; i < script.length; i++) {
-    counter = 0;
-    const currentLetter = script[i];
-    const nextLetter = script[i + 1];
-
-    for (let j = 0; j < letterToAddKashidaAfterArray.length; j++) {
-      const letterToAddKashidaAfter = letterToAddKashidaAfterArray[j];
-
-      if (nextLetter) {
-        if (currentLetter == letterToAddKashidaAfter) {
-          for (let k = 0; k < letterToIgnoreKashidaBeforeArray.length; k++) {
-            const letterToIgnoreKashidaBefore = letterToIgnoreKashidaBeforeArray[k];
-
-            if (nextLetter != letterToIgnoreKashidaBefore) {
-              counter++;
+  if (script && letterToAddKashidaAfterArray && letterToIgnoreKashidaBeforeArray) {
+    for (let i = 0; i < script.length; i++) {
+      counter = 0;
+      const currentLetter = script[i];
+      const nextLetter = script[i + 1];
+  
+      for (let j = 0; j < letterToAddKashidaAfterArray.length; j++) {
+        const letterToAddKashidaAfter = letterToAddKashidaAfterArray[j];
+  
+        if (nextLetter) {
+          if (currentLetter == letterToAddKashidaAfter) {
+            for (let k = 0; k < letterToIgnoreKashidaBeforeArray.length; k++) {
+              const letterToIgnoreKashidaBefore = letterToIgnoreKashidaBeforeArray[k];
+  
+              if (nextLetter != letterToIgnoreKashidaBefore) {
+                counter++;
+              }
             }
-          }
-          if (counter == letterToIgnoreKashidaBeforeArray.length) {
-            script = `${script.substring(0, i + 1)}${kashida}${script.substring(i + 1)}`;
+            if (counter == letterToIgnoreKashidaBeforeArray.length) {
+              script = `${script.substring(0, i + 1)}${kashida}${script.substring(i + 1)}`;
+            }
           }
         }
       }
     }
+  
+    paragraph.textContent = script;
   }
-
-  paragraph.textContent = script;
+  else {
+    if (!script) {
+      text.classList.add('placeholder:font-bold');
+    }
+    if (!lettersToAddKashidaAfter.value) {
+      lettersToAddKashidaAfter.classList.add('placeholder:font-bold');
+    }
+    if (!lettersToIgnoreKashidaBefore.value) {
+      lettersToIgnoreKashidaBefore.classList.add('placeholder:font-bold');
+    }
+  }
 });
 
 const addButtonStyles = () => {
