@@ -10,6 +10,7 @@ const paragraph = document.querySelector('p');
 const space = ' ';
 const kashida = 'ـ';
 const breakLine = '\n';
+const zwnj = '‌';
 let counter;
 
 form.addEventListener('submit', (event) => {
@@ -20,6 +21,8 @@ form.addEventListener('submit', (event) => {
   const letterToIgnoreKashidaBeforeArray = lettersToIgnoreKashidaBefore.value.trim().split(breakLine);
 
   if (script && letterToAddKashidaAfterArray && letterToIgnoreKashidaBeforeArray) {
+    letterToIgnoreKashidaBeforeArray.push(zwnj);
+
     for (let i = 0; i < script.length; i++) {
       counter = 0;
       const currentLetter = script[i];
