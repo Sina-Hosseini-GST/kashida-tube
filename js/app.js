@@ -21,7 +21,7 @@ form.addEventListener('submit', (event) => {
   const letterToIgnoreKashidaBeforeArray = lettersToIgnoreKashidaBefore.value.trim().split(breakLine);
 
   if (script && letterToAddKashidaAfterArray && letterToIgnoreKashidaBeforeArray) {
-    letterToIgnoreKashidaBeforeArray.push(zwnj);
+    letterToIgnoreKashidaBeforeArray.push(zwnj, space);
 
     for (let i = 0; i < script.length; i++) {
       counter = 0;
