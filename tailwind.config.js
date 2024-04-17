@@ -15,6 +15,9 @@ module.exports = {
         'c-3': 'calc(50dvh - 2.5rem)',
         'c-4': 'calc(50dvh - 5rem)',
         'c-5': 'calc(100dvw - 17.5rem)'
+      },
+      colors: {
+        'c-red': 'red'
       }
     },
   },

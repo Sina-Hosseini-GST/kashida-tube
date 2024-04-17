@@ -41,14 +41,14 @@ form.addEventListener('submit', (event) => {
               }
             }
             if (counter == letterToIgnoreKashidaBeforeArray.length) {
-              script = `${script.substring(0, i + 1)}${kashida}${script.substring(i + 1)}`;
+              script = `${script.substring(0, i + 1)}<span class="text-c-red">${kashida}</span>${script.substring(i + 1)}`;
             }
           }
         }
       }
     }
   
-    paragraph.textContent = script;
+    paragraph.innerHTML = script;
   }
   else {
     if (!script) {
